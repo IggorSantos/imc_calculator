@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'reusable_card.dart'
+import 'reusable_widget.dart'
 
 class InputPage extends StatefulWidget {
   @override
@@ -19,27 +22,39 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
               Expanded(
-              child: ReusableCard(),
+              child: ReusableCard(
+                cor: Colors.amber,
+                cardChild: ReusableWidget(
+                  icon: Icons.add,
+                  label: 'FEMALE',
+                )
+              ),
             ),
             Expanded(
-            child:ReusableCard(),
+            child:ReusableCard(
+              cor: Colors.amber,
+              cardChild: ReusableWidget(
+                icon: Icons.call_made,
+                label: 'MALE',
+              ),
+            ),
            ),
           ],
          ),
         ),
       ),
         Expanded(
-        child: ReusableCard(),
+        child: ReusableCard(cor: Colors.amber),
         ),
         Expanded(
         child: Container(
         child: Row(
           children: <Widget>[
           Expanded(
-          child: ReusableCard(),
+          child: ReusableCard(cor: Colors.amber),
           ),
           Expanded(
-          child:ReusableCard(),
+          child:ReusableCard(cor: Colors.amber),
            ),
           ],
          ),
@@ -49,18 +64,5 @@ class _InputPageState extends State<InputPage> {
     )
 
    );
-  }
-}
-
-class ReusableCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.all(15.0),
-        decoration: BoxDecoration(
-          color: Colors.amber,
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-      );
   }
 }
