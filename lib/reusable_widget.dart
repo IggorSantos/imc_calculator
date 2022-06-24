@@ -21,6 +21,7 @@ class ReusableWidget extends StatelessWidget {
         ),
         Text(
           label,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)
           ),
       ],
     );
