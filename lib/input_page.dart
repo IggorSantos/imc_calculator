@@ -74,41 +74,49 @@ class _InputPageState extends State<InputPage> {
         child: ReusableCard(
           cor: Colors.amber,
           cardChild: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-            'HEIGHT',
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: <Widget>[
-                Text(
-                  height.toString(),
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 60)
-                ),
-                Text(
-                  'cm',
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+              'HEIGHT',
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: <Widget>[
+                  Text(
+                    height.toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 60)
                   ),
-                ],
-              ),
-              Slider(
-                value: height.toDouble(),
-                min: 120,
-                max: 220,
-                activeColor: Colors.red,
-                inactiveColor: Colors.yellow,
-                onChanged: (double newValue){
-                  setState(() {
-                   height = newValue.round();
-                  });
-                },
-              ),
-            ],
-           ),
+                  Text(
+                    'cm',
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)
+                    ),
+                  ],
+                ),
+                SliderTheme(
+                  data: SliderTheme.of(context).copyWith(
+                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
+                    overlayShape: RoundSliderOverlayShape(overlayRadius: 20),
+                    thumbColor: Colors.pink,
+                    overlayColor: Colors.pink,
+                  ),
+                  child: Slider(
+                    value: height.toDouble(),
+                    min: 120,
+                    max: 220,
+                    activeColor: Colors.red,
+                    inactiveColor: Colors.yellow,
+                    onChanged: (double newValue){
+                      setState(() {
+                       height = newValue.round();
+                      });
+                    },
+                  ),
+                ),
+              ],
+             ),
          ),
         ),
         Expanded(
