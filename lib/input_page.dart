@@ -20,6 +20,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
  GenderType selectedGender = GenderType.begin;
  int height = 180;
+ int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +125,41 @@ class _InputPageState extends State<InputPage> {
         child: Row(
           children: <Widget>[
           Expanded(
-          child: ReusableCard(cor: Colors.amber),
+          child: ReusableCard(
+            cor: Colors.amber,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Weight',
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                  Text(
+                    weight.toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 60),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      RoundIconButton(),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      FloatingActionButton(
+                        onPressed:(){
+                          print("Funciona");
+                        },
+                        backgroundColor: Colors.yellow,
+                        child:Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
           Expanded(
           child:ReusableCard(cor: Colors.amber),
@@ -137,5 +172,18 @@ class _InputPageState extends State<InputPage> {
     )
 
    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context){
+    return RawMaterialButton(
+      shape: CircleBorder(),
+      fillColor: Colors.yellow,
+      onPressed:(){
+        print("Funciona");
+      },
+    );
   }
 }
