@@ -3,8 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'reusable_widget.dart';
 
-const activeCardColor = Colors.yellow;
-const inactiveCardColor = Colors.amber;
+const Color activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Color(0xFF111328);
 
 enum GenderType {
   male,
@@ -21,6 +21,7 @@ class _InputPageState extends State<InputPage> {
  GenderType selectedGender = GenderType.begin;
  int height = 180;
  int weight = 60;
+ int age = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +74,7 @@ class _InputPageState extends State<InputPage> {
       ),
         Expanded(
         child: ReusableCard(
-          cor: Colors.amber,
+          cor: activeCardColor,
           cardChild: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -126,43 +127,75 @@ class _InputPageState extends State<InputPage> {
           children: <Widget>[
           Expanded(
           child: ReusableCard(
-            cor: Colors.amber,
-              cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'Weight',
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                  Text(
-                    weight.toString(),
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 60),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      RoundIconButton(),
-                      SizedBox(
-                        width: 10,
+            cor: activeCardColor,
+              cardChild: Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Weight',
+                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    Text(
+                      weight.toString(),
+                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 60),
+                    ),
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(
+                            icon: Icons.remove,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          RoundIconButton(
+                            icon: Icons.add,
+                          ),
+                        ],
                       ),
-                      FloatingActionButton(
-                        onPressed:(){
-                          print("Funciona");
-                        },
-                        backgroundColor: Colors.yellow,
-                        child:Icon(
-                          Icons.add,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
           Expanded(
-          child:ReusableCard(cor: Colors.amber),
+          child:ReusableCard(
+          cor: activeCardColor,
+            cardChild: Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Age',
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                  Text(
+                    age.toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 60),
+                  ),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        RoundIconButton(
+                          icon: Icons.remove,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        RoundIconButton(
+                          icon: Icons.add,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+             ),
+            ),
            ),
           ],
          ),
@@ -176,14 +209,24 @@ class _InputPageState extends State<InputPage> {
 }
 
 class RoundIconButton extends StatelessWidget {
+  RoundIconButton({this.icon = Icons.remove});
+
+  final IconData icon;
+  final Color fill = Color(0xFF4C4F5E);
   @override
   Widget build(BuildContext context){
     return RawMaterialButton(
+      child: Icon(icon),
+      elevation: 0,
+      constraints: BoxConstraints.tightFor(
+        width: 56,
+        height: 56,
+      ),
       shape: CircleBorder(),
-      fillColor: Colors.yellow,
-      onPressed:(){
-        print("Funciona");
-      },
+      fillColor: fill,
+      onPressed: (){
+        print("Teste");
+      }
     );
-  }
+   }
 }

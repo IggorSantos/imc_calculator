@@ -4,6 +4,7 @@ import 'input_page.dart';
 void main() => runApp(BMICalculator());
 
 class BMICalculator extends StatelessWidget {
+final Color cor = Color(0xFF0A0E21);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +15,7 @@ class BMICalculator extends StatelessWidget {
         ).copyWith(
           secondary: Colors.purple,
         ),
-        scaffoldBackgroundColor: Colors.green,
+        scaffoldBackgroundColor: cor,
       ),
     );
   }
