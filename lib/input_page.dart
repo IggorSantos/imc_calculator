@@ -144,14 +144,38 @@ class _InputPageState extends State<InputPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          RoundIconButton(
-                            icon: Icons.remove,
+                        RawMaterialButton(
+                          child: Icon(Icons.remove),
+                          elevation: 0,
+                          constraints: BoxConstraints.tightFor(
+                            width: 56,
+                            height: 56,
                           ),
+                          shape: CircleBorder(),
+                          fillColor: Colors.amber,
+                          onPressed: (){
+                            setState((){
+                              weight = weight - 1;
+                            });
+                          }
+                        ),
                           SizedBox(
                             width: 10,
                           ),
-                          RoundIconButton(
-                            icon: Icons.add,
+                          RawMaterialButton(
+                            child: Icon(Icons.add),
+                            elevation: 0,
+                            constraints: BoxConstraints.tightFor(
+                              width: 56,
+                              height: 56,
+                            ),
+                            shape: CircleBorder(),
+                            fillColor: Colors.amber,
+                            onPressed: (){
+                            setState((){
+                              weight = weight + 1;
+                            });
+                            }
                           ),
                         ],
                       ),
@@ -180,14 +204,38 @@ class _InputPageState extends State<InputPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        RoundIconButton(
-                          icon: Icons.remove,
+                      RawMaterialButton(
+                        child: Icon(Icons.remove),
+                        elevation: 0,
+                        constraints: BoxConstraints.tightFor(
+                          width: 56,
+                          height: 56,
                         ),
+                        shape: CircleBorder(),
+                        fillColor: Colors.amber,
+                        onPressed: (){
+                          setState((){
+                            age = age - 1;
+                          });
+                        }
+                      ),
                         SizedBox(
                           width: 10,
                         ),
-                        RoundIconButton(
-                          icon: Icons.add,
+                        RawMaterialButton(
+                          child: Icon(Icons.add),
+                          elevation: 0,
+                          constraints: BoxConstraints.tightFor(
+                            width: 56,
+                            height: 56,
+                          ),
+                          shape: CircleBorder(),
+                          fillColor: Colors.amber,
+                          onPressed: (){
+                            setState((){
+                              age = age + 1;
+                            });
+                          }
                         ),
                       ],
                     ),
@@ -206,27 +254,4 @@ class _InputPageState extends State<InputPage> {
 
    );
   }
-}
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({this.icon = Icons.remove});
-
-  final IconData icon;
-  final Color fill = Color(0xFF4C4F5E);
-  @override
-  Widget build(BuildContext context){
-    return RawMaterialButton(
-      child: Icon(icon),
-      elevation: 0,
-      constraints: BoxConstraints.tightFor(
-        width: 56,
-        height: 56,
-      ),
-      shape: CircleBorder(),
-      fillColor: fill,
-      onPressed: (){
-        print("Teste");
-      }
-    );
-   }
 }
