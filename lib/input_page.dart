@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'reusable_widget.dart';
+import 'results_page.dart';
 
 const Color activeCardColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xFF111328);
@@ -99,8 +100,8 @@ class _InputPageState extends State<InputPage> {
                 ),
                 SliderTheme(
                   data: SliderTheme.of(context).copyWith(
-                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
-                    overlayShape: RoundSliderOverlayShape(overlayRadius: 20),
+                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 5),
+                    overlayShape: RoundSliderOverlayShape(overlayRadius: 5),
                     thumbColor: Colors.pink,
                     overlayColor: Colors.pink,
                   ),
@@ -249,6 +250,25 @@ class _InputPageState extends State<InputPage> {
          ),
         ),
       ),
+        GestureDetector(
+        onTap: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context){
+                return ResultsPage();
+              }
+            )
+          );
+        },
+          child:Container(
+            child: Text('CALCULATE'),
+            color: Colors.amber,
+            margin: EdgeInsets.only(top: 10),
+            width: double.infinity,
+            height: 80,
+          ),
+        ),
      ],
     )
 
